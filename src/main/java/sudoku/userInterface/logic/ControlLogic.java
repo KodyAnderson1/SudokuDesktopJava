@@ -1,5 +1,6 @@
 package sudoku.userInterface.logic;
 
+import sudoku.computationLogic.GameLogic;
 import sudoku.constants.GameState;
 import sudoku.constants.Messages;
 import sudoku.problemdomain.IStorage;
@@ -45,7 +46,15 @@ public class ControlLogic implements IUserInterfaceContract.EventListener {
 
     @Override
     public void onDialogClick() {
+        try {
+            storage.updateGameData(
+                    GameLogic.getNewGame()
+            );
 
+            view.updateBoard(storage.getGameData());
+        } catch(IOException e) {
+            view.showError(Messages.ERROR);
+        }
 
     }
 

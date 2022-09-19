@@ -44,7 +44,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View, EventHand
     public UserInterfaceImpl(Stage stage) {
         this.stage = stage;
         this.root = new Group();
-        this.textFieldCoordinates = new HasMap<>();
+        this.textFieldCoordinates = new HashMap<>();
         initializeUserInterface();
     }
 
